@@ -6,12 +6,16 @@
         <description>Recent content on Monica Chan</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language><atom:link href="https://woxsao.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title></title>
-        <link>https://woxsao.github.io/</link>
+        <title>About me!</title>
+        <link>https://woxsao.github.io/post/hello-world/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://woxsao.github.io/</guid>
-        <description></description>
+        <guid>https://woxsao.github.io/post/hello-world/</guid>
+        <description>&lt;img src="https://woxsao.github.io/post/hello-world/alchemist.png" alt="Featured image of post About me!" /&gt;&lt;p&gt;Hi there! I&amp;rsquo;m Monica Chan, a junior studying EECS at MIT.
+My interests include embedded systems, software design and integration, digital design, and AI.&lt;/p&gt;
+&lt;p&gt;I am on track to graduate with my Bachelor&amp;rsquo;s in EECS from MIT in 2025, and a Master&amp;rsquo;s in EECS from MIT in 2026.&lt;/p&gt;
+&lt;p&gt;You can email me at &lt;a class=&#34;link&#34; href=&#34;mailto:mochan@mit.edu&#34; &gt;mochan@mit.edu&lt;/a&gt;.&lt;/p&gt;
+</description>
         </item>
         
     </channel>
