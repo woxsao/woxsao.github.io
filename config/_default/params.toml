@@ -1,0 +1,8 @@
+mainSections = ["post"]
+[sidebar]
+emoji = "🪷"
+
+[sidebar.avatar]
+enabled = true
+local = true
+src = "img/self.png"

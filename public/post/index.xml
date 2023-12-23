@@ -13,9 +13,37 @@
         <guid>https://woxsao.github.io/post/hello-world/</guid>
         <description>&lt;img src="https://woxsao.github.io/post/hello-world/alchemist.png" alt="Featured image of post About me!" /&gt;&lt;p&gt;Hi there! I&amp;rsquo;m Monica Chan, a junior studying EECS at MIT.
 My interests include embedded systems, software design and integration, digital design, and AI.&lt;/p&gt;
-&lt;p&gt;I also do art.&lt;/p&gt;
 &lt;p&gt;I am on track to graduate with my Bachelor&amp;rsquo;s in EECS from MIT in 2025, and a Master&amp;rsquo;s in EECS from MIT in 2026.&lt;/p&gt;
+&lt;p&gt;I’ve worked at Renesas Electronics, Tesla, and will be working at SpaceX in 2024. At Renesas I was responsible for delivering a lossy inductor model for simulation in Simplis. At Tesla, I developed the Service UI Charging Panel for Cybertruck, created fleet analysis tools for Service Engineering, and contributed to Service Engineering for Cybertruck launch. At SpaceX, I will be on the ground segment telemetry team for Falcon.&lt;/p&gt;
 &lt;p&gt;You can email me at &lt;a class=&#34;link&#34; href=&#34;mailto:mochan@mit.edu&#34; &gt;mochan@mit.edu&lt;/a&gt;.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Projects</title>
+        <link>https://woxsao.github.io/post/projects/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://woxsao.github.io/post/projects/</guid>
+        <description>&lt;img src="https://woxsao.github.io/post/projects/racecarpainting.png" alt="Featured image of post Projects" /&gt;&lt;h3 id=&#34;formula-sae&#34;&gt;Formula SAE&lt;/h3&gt;
+&lt;p&gt;Most of my time is spent coding for MIT&amp;rsquo;s Formula SAE Electric Vehicle team. Every year, we build a Formula 1 style electric vehicle racecar, and compete in the Formula Hybrid and Formula SAE competitions.&lt;/p&gt;
+&lt;p&gt;As software lead, I&amp;rsquo;m responsible for managing my subteam and delivering vehicle controls, board firmware, and data acquisition subsystems.&lt;/p&gt;
+&lt;p&gt;My work can be found here:&lt;/p&gt;
+&lt;h3 id=&#34;fpga-sheet-music-transcriber&#34;&gt;FPGA Sheet Music Transcriber&lt;/h3&gt;
+&lt;p&gt;Other Projects I&amp;rsquo;ve done include building an FPGA Sheet music transcriber for MIT&amp;rsquo;s 6.205 Digital Systems Lab. This system has a microphone that converts piano audio data into sheet music!&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=1X-RZDkiSYc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video Demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/woxsao/6.111-Music-Transcription-Project/blob/main/6_111_Final_Report.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Paper&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/woxsao/6.111-Music-Transcription-Project&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Code&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;kuka-iiwa-typing-robot-in-drake&#34;&gt;KUKA IIWA Typing Robot in Drake&lt;/h3&gt;
+&lt;p&gt;For MIT&amp;rsquo;s 6.4210 Robotic Manipulation class, we created a typing KUKA IIWA arm with an Allegro hand that is able to type messages on a QWERTY style keyboard using multiple fingers. We used pydrake and meshcat for our simulation.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=lqTE7q3AonY&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Video Demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/woxsao/6.4210-Typing-Robot/blob/main/TypingRobot_Zhang_Chan%20%281%29.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Paper&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/woxsao/6.4210-Typing-Robot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Code&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         
