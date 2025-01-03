@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Background Most of my time is spent coding for MIT&amp;rsquo;s Formula SAE Electric Vehicle team. Every year, we build a Formula 1 style electric vehicle racecar, and compete in the Formula Hybrid and Formula SAE competitions.
+As software lead, I&amp;rsquo;m responsible for managing my subteam and delivering vehicle controls, board firmware, and data acquisition subsystems. In 2025, we are aiming to create our first driverless car. This is definitely a more ongoing project, but as of Dec 2024 I decided I want to write up some of the design process.'>
+<title>Building an Autonomous Formula SAE Electric Racecar</title>
+
+<link rel='canonical' href='http://localhost:1313/post/projects/FSAE/'>
+
+<link rel="stylesheet" href="/scss/style.min.abbd69b2908fdfcd5179898beaafd374514a86538d81639ddd2c58c06ae54e40.css"><meta property='og:title' content='Building an Autonomous Formula SAE Electric Racecar'>
+<meta property='og:description' content='Background Most of my time is spent coding for MIT&amp;rsquo;s Formula SAE Electric Vehicle team. Every year, we build a Formula 1 style electric vehicle racecar, and compete in the Formula Hybrid and Formula SAE competitions.
+As software lead, I&amp;rsquo;m responsible for managing my subteam and delivering vehicle controls, board firmware, and data acquisition subsystems. In 2025, we are aiming to create our first driverless car. This is definitely a more ongoing project, but as of Dec 2024 I decided I want to write up some of the design process.'>
+<meta property='og:url' content='http://localhost:1313/post/projects/FSAE/'>
+<meta property='og:site_name' content='Monica Chan'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-01-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-02T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/images/fsae/racecarpainting.png' />
+<meta name="twitter:title" content="Building an Autonomous Formula SAE Electric Racecar">
+<meta name="twitter:description" content="Background Most of my time is spent coding for MIT&amp;rsquo;s Formula SAE Electric Vehicle team. Every year, we build a Formula 1 style electric vehicle racecar, and compete in the Formula Hybrid and Formula SAE competitions.
+As software lead, I&amp;rsquo;m responsible for managing my subteam and delivering vehicle controls, board firmware, and data acquisition subsystems. In 2025, we are aiming to create our first driverless car. This is definitely a more ongoing project, but as of Dec 2024 I decided I want to write up some of the design process."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/images/fsae/racecarpainting.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/self_hufa89bb40a6861d4a47df2689741e1a7f_11998991_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🪷</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Monica Chan</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/post/about/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li  class='current' >
+            <a href='/post/projects/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/projects/FSAE/">
+                
+                    <img src="/images/fsae/racecarpainting.png" loading="lazy" alt="Featured image of post Building an Autonomous Formula SAE Electric Racecar" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/projects/FSAE/">Building an Autonomous Formula SAE Electric Racecar</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 02, 2025</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="background">Background</h2>
+<p>Most of my time is spent coding for MIT&rsquo;s Formula SAE Electric Vehicle team. Every year, we build a Formula 1 style electric vehicle racecar, and compete in the Formula Hybrid and Formula SAE competitions.</p>
+<p>As software lead, I&rsquo;m responsible for managing my subteam and delivering vehicle controls, board firmware, and data acquisition subsystems. In 2025, we are aiming to create our first driverless car. This is definitely a more ongoing project, but as of Dec 2024 I decided I want to write up some of the design process.</p>
+<p>The goal for 2025 is to have a 1/4 scale test vehicle running the entire autonomous stack, outfitted with the computer and sensors we will put on our 2026 car.</p>
+<p>Formula SAE is integrating a driverless component into the competition, phasing in slowly over the next couple years. It will be similar to the Formula SAE Germany style driverless cup competition, in which a car must navigate between blue and yellow cones outlining an autocross style track.</p>
+<p>A video of the 2024 Formula Student Germany winning trackdrive can be found here:
+<a class="link" href="https://www.youtube.com/watch?v=X_9zMuQ9sNw"  target="_blank" rel="noopener"
+    >AMZ&rsquo;s 2024 FSG winning trackdrive</a></p>
+<p>The main idea is basically: detect the cones and make a plan to navigate through them, keeping the yellow cones on the right and the blue cones on the left.
+The cones we have to detect are here:
+<figure><img src="/images/fsae/cone.png"
+         alt="Cones we have to detect" width="500" height="auto"/>
+</figure>
+</p>
+<p>This page is being updated periodically, the design of this car is ongoing.</p>
+<h2 id="designing-the-team">Designing the Team</h2>
+<p>I was the software lead for my junior year as well as my senior year, and coming into this year with one year of experience under my belt told me that the team was going to make or break this project, not the technical problems. Lots of other teams&rsquo; advice is to think through the structure of the team very carefully, and I definitely agree with them. Division of responsibility for such a large project was absolutely crucial in the beginning months of design, and developing a strict timeline was key.</p>
+<p>I started by setting a recruitment goal of 10 new people to design our autonomous software for this year, aiming to recruit into a few subcategories:</p>
+<ol>
+<li>Perception - This is the team responsible for seeing and identifying the cones in the field.</li>
+<li>State Estimation - This is the team (for now one person) responsible for figuring out where we are in the track, given the cones that we see from perception.</li>
+<li>Motion Planning - This is the team that is responsible for figuring out what the next step is: how much do we turn? how fast do we go?</li>
+<li>Controls - This is the team responsible for executing the desired trajectory, mostly low level and motor control knowledge here.</li>
+<li>Infrastructure - This team is responsible for maintaining the architecture of the software and doing all the ROS things.</li>
+</ol>
+<p>I thought it was crucial that the autonomous team had a passion for designing a real product: not just something that would sit in simulation. So I recruited the autonomous team just like any other software system on the car, I gave them the same new member project which was to make a little STM32L4 nucleo board perform some simple tasks (communicating over serial and stepping through a state machine). This filtered out a lot of people who were not interested in hardware, which was my goal. I got very lucky to have found a team of amazing 10 people who joined the team this year for autonomous, and were willing to take a gamble on me and the team for this gigantic R&amp;D step that our team had never taken before. I will say that our Formula SAE team as a whole was in a much better position to take this project on this year than before, many teams usually only have 1 or 2 guys writing the software for their entire car. When I was appointed software lead in my junior year, we had 2 people including me. I focused on growing our team to a size where we could take on more R&amp;D projects, and that&rsquo;s exactly what I did. I now lead a small army of 26 software engineers (10 working on the autonomous car and 16 on the normal car).</p>
+<h2 id="design-requirements">Design Requirements</h2>
+<p>We ran a small kinematic script to derive our initial lookahead distance and FOV requirements. I realized that the most constraining part of executing the trackdrive would be the smallest diameter turn, which is outlined to be 4.5m in diameter. We swept trajectories leading up to the hairpin and calculated the amount of distance in advance we&rsquo;d have to detect the cone at the apex of the turn in order to achieve our hairpin speed.</p>
+<p><figure><img src="/images/fsae/trajectory.png"
+         alt="Sweeping trajectories" width="250" height="auto"/>
+</figure>
+
+<em>Image representation of what our script checks. We sweep multiple trajectories leading to the hairpin and use kinematics to backsolve the distance we need to detect the apex to slow down.</em></p>
+<p>Our script gave us our initial design requirements!</p>
+<ol>
+<li>Lookahead distance of 20m</li>
+<li>Horizontal Field of View (FOV) of 120 degrees.</li>
+<li>Minimum pixel height for cone detection should be 20 pixels. This requirement came from existing requirements set by other teams plus some papers.</li>
+<li>Latency from sensor input to actuation should be 350ms.</li>
+</ol>
+<p>The key intuition behind these results is that the situation where our lookahead distance is most constrained (longest) is when the car is approaching the hairpin straight on. The situation where our angular FOV (AFOV) is most constrained is when we are approaching the hairpin from a skidpad like angle. This script is beneficial because it ensures our AFOV will allow us to execute skidpad safely.</p>
+<h2 id="sensor-choice">Sensor choice</h2>
+<p>Our team knew from the beginning that we wanted both lidar and cameras on our car. It just made sense since both provided critical functionality, and sensor fusion was an interesting problem to the team.</p>
+<h3 id="lidar">LiDAR</h3>
+<p>We wanted a mechanical spinning LiDAR sensor because of the added FOV. Luckily, there aren&rsquo;t that many options on the market, especially since Ouster purchased Velodyne, so we decided to go with the latest Ouster model, the OS1-128. This has 128 vertical channels which is really amazing, especially comparing it to the 32 channel one MIT Driverless lent to us.</p>
+<p><figure><img src="/images/fsae/point_cloud.png"
+         alt="ouster specs" width="400" height="200"/>
+</figure>
+
+<em>The first point cloud we collected</em></p>
+<h3 id="cameras">Cameras</h3>
+<p>I learned quite a lot about optics in the last two months. We quickly realized that we would need more than one camera, since you can outfit different specced lenses onto cameras to achieve different FOV&rsquo;s. We decided we needed to make more specific design requirements for our long and short range systems.</p>
+<p>Short Range:</p>
+<ol>
+<li>Working horizontal FOV of 5m (width of the track) at 1.5 m.</li>
+<li>Maximum required lookahead of 6m.</li>
+</ol>
+<p>Long Range:</p>
+<ol>
+<li>Working horizontal FOV of 5m at 4m.</li>
+<li>Maximum required lookahead of 20m.</li>
+<li>Minimum pixel resolution of 15 px at 20m.</li>
+</ol>
+<p>Equations that ended up being important:
+$AFOV = 2*arctan(sensor_width/(2 \cdot focal_length))$</p>
+<p>$focal_length = min_pixels \cdot lookahead \cdot pixel_size/feature_size$</p>
+<p>We used the second equation to spec out what the focal length of our lenses should be for the feature we wanted to detect. We determined that our initial goals were a little unrealistic, and settled for an 8mm lens that provided 15 pixel height at 20m lookahead distance.</p>
+<p>Originally we wanted one long range camera and one short range camera for reliability (fewer cameras means fewer opportunities for hardware failure), but we then realized that we&rsquo;d get something like 40% distortion on our lenses if we used one short range camera. As mentioned earlier, the field of view requirements are what most constrains the short range camera, so we decided to split our short range into two short range cameras that each contribute a portion of the whole short range image.</p>
+<figure><img src="/images/fsae/distortion_plot.png"
+         alt="4.5 mm lens distortion plot" width="800" height="auto"/>
+</figure>
+
+<p><em>Plot of our short range lens choice distortion, courtesy of Edmund Optics. Our lens will exhibit what is known as barrel distortion since it has a negative percentage of distortion. Our short range camera&rsquo;s format is f1/1.8, so we achieve around 15% distortion</em></p>
+<p><figure><img src="/images/fsae/distortion.png"
+         alt="distortion types" width="400" height="auto"/>
+</figure>
+
+<em>Barrel vs. pincushion distortion</em></p>
+<p>Optics was this endless rabbit hole I really enjoyed going down, and partnering with Edmund Optics was definitely the right decision. Their website had a ton of technical information packed into each product page, including calculators integrated into each product. For instance the camera products have an imaging lens calculator that pulls up for your required FOV what lens you should select, overall a very seamless customer experience.</p>
+<p>We ended up selecting <a class="link" href="https://www.edmundoptics.com/p/bfs-pge-16s7c-c-poe-gige-blackflyr-s-color-camera/49856/"  target="_blank" rel="noopener"
+    >this long range camera</a> with an 8mm focal length lens to achieve 5000 x 3437mm at 2769mm working distance.</p>
+<p>We selected <a class="link" href="https://www.edmundoptics.com/p/bfly-pge-31s4mc-c-118-blackflyreg-poe-gige-color-camera/3874/"  target="_blank" rel="noopener"
+    >two of these short range cameras</a> with a 4.5mm focal length lens to achieve a horizontal FOV of 2500mm at 1582mm working distance. To achieve the full 5000mm FOV, we are going to keystone our cameras (put them at an angle).</p>
+<p>Here is a temporary sketch (might replace as we determine the final angle), but for now:
+<figure><img src="/images/fsae/short_range_arrangement.png"
+         alt="short range types" width="800" height="auto"/>
+</figure>
+
+<em>Arranging the cameras 44 degrees from each other allows us to reach our full 120 degree design requirement. We achieve a FOV of 2500mm at 659mm</em></p>
+<h2 id="compute">Compute</h2>
+<p>We decided early on to use BevFusion for our sensor fusion model. As opposed to late fusion algorithms, we wanted to choose an intermediate to early fusion model to take advantage of recent machine learning advances. Most of the existing literature for driverless FSAE cars comes from late 2010&rsquo;s german teams, such as AMZ and even MIT Driverless&rsquo;s whitepapers. Back then, late fusion was the norm, but now the autonomy world is moving more toward early and intermediate fusion. Our team found <a class="link" href="https://arxiv.org/pdf/2206.09474"  target="_blank" rel="noopener"
+    >this paper written by researchers at The Chinese University of Hong Kong</a> which details current methods of perception and object detection. In particular they had a table that summarized things quite well:</p>
+<figure><img src="/images/fsae/fusion_methods.png"
+         alt="Fusion methods" width="800" height="auto"/>
+</figure>
+
+<p>BEVFusion-MIT is among the leading models on nuScenes, achieving ~120ms latency on an Nvidia 3090 (Segments.ai). Performance improves with EA-LSS enhancements while remaining within our 150ms perception latency budget.</p>
+<p>For state estimation we will be implementing Graph-SLAM with a Ceres Solver, and motion planning will implement a ceres solver. If you&rsquo;re interested in learning more about our autonomous software design, you can email us at <a class="link" href="mailto:fsae@mit.edu" >fsae@mit.edu</a>.</p>
+<p>All those design choices led us to choose the NVIDIA Orin for our car. We debated building a custom PC but decided against it due to high power draw. The minimum power draw for a custom PC that we could build would be around 250 Watts just for the GPU alone! The Orin draws around 100W, making it ideal for trackdrive conditions along with its very packageable body.</p>
+<h2 id="coming-soon-iap-build-time">Coming soon: IAP Build Time!</h2>
+<p>We are planning on doing a bulk of our manufacturing and assembly of our testbed and data collection jig during IAP with the goal of collecting data during IAP!!!
+If you have any questions at all, please shoot us an email at <a class="link" href="mailto:fsae@mit.edu" >fsae@mit.edu</a>, or me personally at <a class="link" href="mailto:mochan@mit.edu" >mochan@mit.edu</a></p>
+<p>because racecar.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 Monica Chan
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

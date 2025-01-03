@@ -1,0 +1,1114 @@
+---
+title: "Deep Learning"
+draft: false
+---
+
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link rel="shortcut icon" href="images/icon.ico">
+<style type="text/css">
+	body {
+		background-color: #f5f9ff;
+	}
+
+	 
+  .mathjax-mobile, .mathml-non-mobile { display: none; }
+
+   
+  .show-mathml .mathml-non-mobile { display: block; }
+  .show-mathjax .mathjax-mobile { display: block; }
+
+	.content-margin-container {
+		display: flex;
+		width: 100%;  
+		justify-content: left;  
+		align-items: center;   
+	}
+	.main-content-block {
+		width: 70%;  
+    max-width: 1100px;  
+		background-color: #fff;
+		border-left: 1px solid #DDD;
+		border-right: 1px solid #DDD;
+		padding: 8px 8px 8px 8px;
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;#"Avenir";
+	}
+	.margin-left-block {
+			font-size: 14px;
+			width: 15%;  
+			max-width: 130px;  
+			position: relative;
+			margin-left: 10px;
+			text-align: left;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;#"Avenir";
+			padding: 5px;
+	}
+	.margin-right-block {
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;#"Avenir";
+			font-size: 14px;
+			width: 25%;  
+			max-width: 256px;  
+			position: relative;
+			text-align: left;
+			padding: 10px;   
+	}
+
+	img {
+			max-width: 100%;  
+			height: auto;
+			display: block;
+			margin: auto;
+	}
+	.my-video {
+			max-width: 100%;  
+			height: auto;
+			display: block;
+			margin: auto;
+	}
+	 
+  .vid-mobile, .vid-non-mobile { display: none; }
+
+   
+  .show-vid-mobile .vid-mobile { display: block; }
+  .show-vid-non-mobile .vid-non-mobile { display: block; }
+
+	a:link,a:visited
+	{
+		color: #0e7862;  
+		text-decoration: none;
+	}
+	a:hover {
+		color: #24b597;  
+	}
+
+	h1 {
+		font-size: 20px;
+		margin-top: 4px;
+		margin-bottom: 10px;
+		text-decoration: underline;
+	}
+
+	h2 {
+		font-size: 18px;
+		margin-top: 4px;
+		margin-bottom: 8px;
+	}
+
+	table.header {
+    font-weight: 300;
+    font-size: 17px;
+    flex-grow: 1;
+		width: 70%;
+    max-width: calc(100% - 290px);  
+	}
+	table td, table td * {
+	    vertical-align: middle;
+	    position: relative;
+	}
+	table.paper-code-tab {
+	    flex-shrink: 0;
+	    margin-left: 8px;
+	    margin-top: 8px;
+	    padding: 0px 0px 0px 8px;
+	    width: 290px;
+	    height: 150px;
+	}
+
+	.layered-paper {  
+		box-shadow:
+		        0px 0px 1px 1px rgba(0,0,0,0.35),  
+		        5px 5px 0 0px #fff,  
+		        5px 5px 1px 1px rgba(0,0,0,0.35),  
+		        10px 10px 0 0px #fff,  
+		        10px 10px 1px 1px rgba(0,0,0,0.35);  
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	hr {
+    height: 1px;  
+    border: none;  
+    background-color: #DDD;  
+  }
+
+	div.hypothesis {
+		width: 80%;
+		background-color: #EEE;
+		border: 1px solid black;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		font-family: Courier;
+		font-size: 18px;
+		text-align: center;
+		margin: auto;
+		padding: 16px 16px 16px 16px;
+	}
+
+	div.citation {
+    font-size: 0.8em;
+    background-color:#fff;
+    padding: 10px;
+		height: 200px;
+  }
+
+	.fade-in-inline {
+		position: absolute;
+		text-align: center;
+		margin: auto;
+		-webkit-mask-image: linear-gradient(to right,
+																			transparent 0%,
+																			transparent 40%,
+																			black 50%,
+																			black 90%,
+																			transparent 100%);
+		mask-image: linear-gradient(to right,
+																transparent 0%,
+																transparent 40%,
+																black 50%,
+																black 90%,
+																transparent 100%);
+		-webkit-mask-size: 8000% 100%;
+		mask-size: 8000% 100%;
+		animation-name: sweepMask;
+		animation-duration: 4s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		animation-delay: -1s;
+	}
+
+	.fade-in2-inline {
+			animation-delay: 1s;
+	}
+
+	.inline-div {
+			position: relative;
+	    display: inline-block;  
+	    vertical-align: top;  
+	    width: 50px;  
+	}
+
+</style>
+
+	  <title>Unmasking the Noise: Masked and Denoising Autoencoders in Image Representation</title>
+      <meta property="og:title" content="Unmasking the Noise: Masked and Denoising Autoencoders in Image Representation" />
+			<meta charset="UTF-8">
+  </head>
+
+  <body>
+
+		<div class="content-margin-container">
+				<div class="margin-left-block">
+				</div>
+		    <div class="main-content-block">
+						<table class="header" align=left>
+								<tr>
+									<td colspan=4>
+										<span style="font-size: 32px; font-family: 'Courier New', Courier, monospace; /* Adds fallbacks */">Unmasking the Noise: Masked and Denoising Autoencoders in Image Representation</span>
+									</td>
+								</tr>
+								<tr>
+										<td align=left>
+												<span style="font-size:17px"><a href="https://github.com/woxsao">Monica Chan</a></span>
+										</td>
+										<td align=left>
+												<span style="font-size:17px"><a href="https://github.com/frank-lyy">Frank Lee</a></span>
+										</td>
+										<td align=left>
+											<span style="font-size:17px"><a href="https://github.com/ivywu2003">Ivy Wu</a></span>
+									</td>
+								<tr>
+									<td colspan=4 align=left><span style="font-size:18px">Final project for 6.7960, MIT</span></td>
+								</tr>
+						</table>
+					</div>
+					<div class="margin-right-block">
+					</div>
+		</div>
+
+    <div class="content-margin-container" id="intro">
+		<div class="margin-left-block">
+			
+			<div style="position:fixed; max-width:inherit; top:max(20%,120px)">
+				<b style="font-size:16px">Outline</b><br><br>
+				<a href="#intro">Introduction</a><br><br>
+				<a href="#background">Background</a><br><br>
+				<a href="#methods_and_experiments">Methods and Experiments</a><br><br>
+				<a href="#results_and_analysis">Results and Analysis</a><br><br>
+				<a href="#implications_and_limitations">Implications and Limitations</a><br><br>
+			</div>
+		</div>
+		<div class="main-content-block">
+			<h1>Introduction</h1>
+			<p>The rapid advancement of self-supervised learning (SSL) techniques has paved the way 
+			for more efficient and scalable machine learning models, particularly in the fields of
+			computer vision and natural language processing. At the heart of many SSL frameworks is
+			the autoencoder, a powerful tool for learning compact latent representations that 
+			capture the most salient features of the data and can be applied to downstream tasks 
+			like classification, clustering, and anomaly detection <a href="#ref_2">[2]</a>.</p>
+
+			<p>Building on this foundation, more sophisticated variants like denoising autoencoders 
+			(DAEs) and masked autoencoders (MAEs) have been introduced. Both types of autoencoders
+			employ some form of input data alteration &mdash; whereas DAEs corrupt the image
+			with noise, encouraging the model to focus on underlying patterns rather than 
+			superficial details, MAEs mask out random portions of the input and train the model to 
+			reconstruct the missing information, leveraging the context provided by unmasked 
+			regions. These modifications make DAEs and MAEs particularly effective in capturing 
+			more robust and meaningful representations, with applications across various domains.</p>
+
+			<p>Recent research has shown that MAEs often outperform DAEs in the field of computer 
+			vision, particularly on high-level semantic tasks such as image classification and 
+			semantic segmentation <a href="#ref_1">[1]</a>. However, the reasons behind this superior performance remain 
+			an open question &mdash; the original MAE paper itself concludes with the hypothesis that the behavior 
+			"occurs by way of a rich hidden representation inside the MAE" and the hope that "this 
+			perspective will inspire future work" <a href="#ref_4">[4]</a>. To address this, we examine the latent 
+			representations generated by each model type to uncover the key features and patterns 
+			they prioritize. Through this analysis, we aim to provide a deeper understanding of why 
+			MAEs excel in certain tasks and offer insights into optimizing both models for a broad 
+			range of applications.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="background">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<h1>Background</h1>
+			<p>Typical autoencoders aim to learn an efficient latent representation of the input 
+			data. The model consists of two main parts: the encoder that compresses the input
+			image into the latent space and the decoder that reconstructs the original image. </p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="background">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<img src="/images/images/autoencoder_structure.png" width=512px/>
+		</div>
+		<div class="margin-right-block">
+			Figure 1. Autoencoder structure consisting of the encoder, latent space representation,
+			and decoder <a href="#ref_7">[7]</a>.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="background">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<p>DAEs are designed to reconstruct an original image from noisy input data. During 
+			training, the model requires two sets of data: one with the original, clean images and 
+			another where random noise, typically Gaussian, is added. The DAE structure itself 
+			remains similar to a basic autoencoder, relying on convolutional layers to first
+			compress the input image in the encoder and later reconstruct it through the decoder. 
+			In the forward pass, the model takes in the noisy image as input and calculates the loss 
+			between the final reconstruction and the original noise-less image. This encourages 
+			the model to focus on the true underlying features, rather than the noise introduced 
+			in the input <a href="#ref_6">[6]</a>.</p>
+
+			<p>MAEs are a form of denoising autoencoders that aim to reconstruct a full image given 
+			only random patches of the original image. The researchers that developed MAEs were 
+			originally inspired by BERT, a language model that makes use of masked tokens. BERT 
+			will mask k% of the input sequence of words and learn to predict the masked words <a href="#ref_3">[3]</a>. 
+			With the introduction of vision transformers that tokenize images into individual 
+			patches, this sort of masked prediction model can be applied to images instead of 
+			purely relying on convolutional operations. </p>
+
+			<p>For a given input image, an MAE separates it into patches and randomly masks a 
+			certain percentage of them. The
+			encoder operates only on the visible, unmasked patches, and it utilizes the 
+			self-attention mechanism of vision transformers (ViTs) to capture both local
+			and global features from the unmasked patches. The resulting latent space consists 
+			of the embeddings of each of the unmasked patches. The decoder relies on these
+			embeddings to reconstruct the masked patches before converting the patches back
+			into the full image. Finally, loss between the original and reconstructed images is 
+			calculated for the masked areas alone.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="background">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<img src="/images/images/mae_architecture.png" width=512px/>
+		</div>
+		<div class="margin-right-block">
+			Figure 2. MAE architecture diagram from the original paper <a href="#ref_4">[4]</a>.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="background">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<p>After the initial pre-training phase, which focuses solely on minimizing the 
+			reconstruction loss, both DAEs and MAEs are fine-tuned for specific downstream tasks.
+			For instance, in image classification, a classification head is attached to the encoder,
+			where it is responsible for taking in the latent representations and producing class
+			logits. The model's performance is then evaluated by computing the cross-entropy loss 
+			between the predicted class probabilities and the ground truth labels. This fine-tuning 
+			step allows the pretrained model to leverage its learned representations for accurate 
+			predictions on the specific task at hand.
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="methods_and_experiments">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<h1>Methods and Experiments</h1>
+			<p>Our group hypothesized that ViT-based MAEs may produce a more meaningful latent space 
+			compared to simpler, purely convolutional DAEs. Specifically, if we observe 
+			well-defined clusters in the latent space representations of inputs from the same 
+			image class, we can conclude that the MAE's latent space captures more semantic 
+			information about the actual input image.</p>
+
+			<p>To verify this hypothesis, we evaluated the performance of the MAE and DAE models on
+			three downstream image classification tasks: one on the MNIST dataset, one
+			on the CIFAR-10 dataset, and one on a color-jittered version of the CIFAR-10 dataset.
+			For each of these experiments, we evaluated both models from the following angles:</p>
+
+			<ol>
+				<li><b>Model Performance:</b> To measure the model's performance, we calculated the Peak Signal-to-Noise 
+					Ratio (PSNR) and the Structural Similarity Index (SSIM), which quantify 
+					per-pixel accuracy and structural similarity, respectively, by comparing the 
+					model's reconstructed output to the original input <a href="#ref_5">[5]</a>. Additionally, we assessed 
+					the model's classification accuracy on the test set to measure its ability to 
+					correctly classify images. These metrics provide a comprehensive evaluation of 
+					both reconstruction quality and task-specific performance.</li>
+				<li><b>Latent Space Representation:</b> We investigate the structure of the latent 
+					space by clustering the representations of images, with the expectation that 
+					MAEs will form tighter clusters for images within the same class compared to 
+					DAEs. Moreover, we visualize attention mechanisms and saliency maps to 
+					understand which parts of the image contribute most to the latent space,
+					offering insights into how each model captures important features. </li>
+				<li><b>Weight Analysis:</b> We examine the weight distributions of both DAEs and 
+					MAEs to assess how many neurons are contributing meaningfully to the model's 
+					learning process. A large proportion of small weights may indicate that the 
+					model is not utilizing a significant number of neurons, suggesting potential 
+					inefficiencies or an opportunity for pruning. Conversely, a distribution with 
+					more substantial weights could indicate that the model is focusing on more 
+					useful features, making better use of its capacity to learn and represent the 
+					data. </li>
+			</ol>
+
+			<p>All experiments were conducted using the same base architecture for the DAE, which
+			utilized three convolutional layers for the encoder and three more for the decoder <a href="#ref_11">[11]</a>, and
+			the MAE, which employed the original implementation from the MAE paper that can be 
+			found on Github <a href="#ref_10">[10]</a>. Our only modification to the MAE architecture was the 
+			creation of a custom block class designed to return the attention mechanism if 
+			specified, enabling the visualization of attention maps. Additionally, each experiment 
+			built a wrapper around these base architectures to account for the specific 
+			characteristics of the datasets we were training on, ensuring the models were 
+			properly configured to handle the variations in input data size and task requirements.
+			All reconstruction losses were calculated using a mean squared error (MSE) on the 
+			element-wise differences, and all classification losses were calculated using a 
+			cross-entropy loss.</p>
+
+			<h2>MNIST Image Classification</h2>
+
+			<p>Our group began the project by training a DAE and an MAE on the MNIST dataset, 
+			chosen for its simplicity and suitability for prototyping. The input to the models 
+			was a 28×28×1 tensor, representing image dimensions and a single grayscale channel. 
+			The MNIST dataset contains 60,000 training examples and 10,000 test examples, with 
+			each image paired with a label indicating the digit it represents <a href="#ref_8">[8]</a>.</p>
+
+			<p>The DAE had a latent space size of 8x3x3 per image. It was trained for 20 epochs 
+			with a noise factor of 0.5 and optimized with an Adam optimizer with a learning rate 
+			of 0.001. For the downstream classification task, the classification head was composed 
+			of three linear layers interspersed with normalization, ReLU, and dropout layers that 
+			ultimately reduced the output to just 10 channels. The DAE encoder and classifier head 
+			were further fine-tuned for 20 epochs with a learning rate of 0.001, achieving a final
+			test accuracy of <b>88.9%</b>.</p>
+
+			<p>The MAE was trained with a patch size of 2 and a mask ratio of 0.75, resulting in 
+			a latent space size of 50x64, where 50 was the number of visible patches plus one for 
+			the CLS token. Like with the DAE, we employed an Adam optimizer with a learning rate 
+			of 0.001 to train the MAE for 20 epochs. The classification head was a simple linear 
+			layer that reduced the CLS token's latent representation to 10 channels, and, 
+			after fine-tuning, the overall model achieved a test accuracy of <b>92.86%</b>. </p>
+
+			<p>In addition to the classification accuracies, we provide visualizations of the
+			original, input, and reconstructed images for both the DAE and MAE below for 
+			human quality assessment. </p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="methods_and_experiments">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div style="display: flex; justify-content: center; gap: 2px;">
+				<img src="/images/images/mnist_dae_reconstruction.png" width=450px/>
+				<img src="/images/images/mnist_mae_reconstruction.png" width=450px/>
+			</div>
+		</div>
+		<div class="margin-right-block">
+			Figure 3. MNIST DAE (left) and MAE (right) reconstructions.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="methods_and_experiments">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<h2>CIFAR-10 Image Classification</h2>
+			<p>The CIFAR-10 dataset consists of 60000 images, split into 50000 training images and 
+			10000 testing images. Each 32x32x3 RGB image is labeled with one of ten classes: 
+			airplane, automobile, bird, cat, deer, dog, frog, horse, ship, or truck <a href="#ref_9">[9]</a>.</p>
+
+			<p>The DAE had a latent space of size 48x4x4 and was trained for 20 epochs with a noise
+			factor of 0.1 and an Adam optimizer with a learning rate of 0.0003 and a weight decay of
+			1e-5. The encoder and classification head, which followed the same architecture as that 
+			of the DAE classification head from the MNIST experiment, were fine-tuned for 10 epochs,
+			achieving a final classification accuracy of <b>48.67%</b>.</p>
+
+			<p>The MAE had a latent space of size 65x192, where 192 was the chosen embedding dimension 
+			and 65 was the number of visible patches plus one for the CLS token, resulting from a 
+			patch size of 2 and a mask raito of 0.75. The MAE was pre-trained for 20 epochs with an 
+			Adam optimizer with a learning rate of 1e-4, and the encoder and classification head, a
+			simple fully connected layer, were fine-tuned for 10 epochs, achieving a final accuracy of
+			<b>74.78%</b>.</p>
+
+			<p>The visualizations of the reconstructions from both models are shown below.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="methods_and_experiments">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div style="display: flex; justify-content: center; gap: 10px;">
+				<img src="/images/images/cifar_dae_reconstruction.png" width=400px/>
+				<img src="/images/images/cifar_mae_reconstruction.png" width=400px/>
+			</div>
+		</div>
+		<div class="margin-right-block">
+			Figure 4. CIFAR-10 DAE (left) and MAE (right) reconstructions.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="methods_and_experiments">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<h2>Color-Jittered CIFAR-10 Image Classification</h2>
+			<p>Our final experiment examined a known weakness highlighted in the original MAE paper:
+			the reduced performance of MAE representations under color jittering. </p>
+
+			<p>During the pre-training phase, the CIFAR-10 input data underwent color jittering, where 
+			brightness, contrast, and saturation were adjusted by randomly chosen factors between 
+			0.5 and 1.5, and hue was adjusted by factors between 0.9 and 1.1. Both the DAE 
+			architecture and MAE architecture were pre-trained for 20 epochs with a learning rate 
+			of 1e-4 and a weight decay of 1e-5. For both models, we employed a classification head 
+			that consisted of a simple fully connected layer. Using an optimizer that fine-tuned 
+			the existing MAE/DAE encoder with a learning rate of 1e-5 and trained the classification 
+			head with a learning rate of 1e-3, we found that the MAE classifier achieved a 
+			classification accuracy of <b>62.83%</b>, while the DAE achieved a classification accuracy of <b>44.27%</b>. </p>
+
+			<p>The images below show the reconstructions from both models.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="methods_and_experiments">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div style="display: flex; justify-content: center; gap: 10px;">
+				<img src="/images/images/color_dae_reconstruction.png" width=400px/>
+				<img src="/images/images/color_mae_reconstruction.png" width=400px/>
+			</div>
+		</div>
+		<div class="margin-right-block">
+			Figure 5. Color Jittered CIFAR-10 DAE (left) and MAE (right) reconstructions.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="methods_and_experiments">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			To summarize, we found that the MAE model performed better across all three experiments.
+			The final classification accuracies achieved are listed in the table below.
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="methods_and_experiments">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<table style="border-collapse: collapse; margin: 20px auto;">
+				<tr style="background-color: #f2f2f2;">
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;"></th>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">DAE (%)</th>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">MAE (%)</th>
+				</tr>
+				<tr>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">MNIST</th>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">88.9</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">92.86</td>
+				</tr>
+				<tr>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">CIFAR-10</th>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">48.67</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">74.78</td>
+				</tr>
+				<tr>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Color-Jittered CIFAR-10</th>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">44.27</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">62.83</td>
+				</tr>
+			</table>
+		</div>
+		<div class="margin-right-block">
+			Table 1. Final testing set classification accuracies for the three experiments.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<h1>Results and Analysis</h1>
+
+			<p>We analyze the outcomes of our three experiments, focusing on how the image 
+			accuracy metrics, latent space representation, and model weight distributions correlate 
+			with the overall classification accuracy that each model type achieved. Through these
+			evaluations, we aim to provide a comprehensive understanding of how the architectures 
+			perform and adapt to varying dataset complexities. </p>
+
+			<h2>Visualizing Latent Space Clusters</h2>
+
+			<p>Our hypothesis for why the MAE performs better was that the latent space contained 
+			more information that helped to distinguish the image. In order to test this theory, 
+			we decided to visualize the latent space for both the DAE and the MAE, using 
+			t-SNE to reduce the latent space dimensionality and plotting out an equal number of 
+			samples from each class <a href="#ref_12">[12]</a>.</p>
+
+			<p>For the MAE visualizations in particular, we applied t-SNE on and plotted only the CLS 
+			token. This is a placeholder token that is inserted at the beginning of the sequence right
+			after generating the image patches and is designed to aggregate information from all of the
+			other tokens throughout the encoding process. As a result, the CLS token is commonly used 
+			for downstream classification tasks, and in our project, we leverage it for classification 
+			as well. Since this is the only token used for classification, this is the only aspect that 
+			we are interested in visualizing.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div style="display: flex; justify-content: center; gap: 10px;">
+				<img src="/images/images/mnist_dae_clustering.png" width=400px/>
+				<img src="/images/images/mnist_mae_clustering.png" width=400px/>
+			</div>
+		</div>
+		<div class="margin-right-block">
+			Figure 6. Clustering of the latent space for the MNIST DAE (left) and MAE (right).
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<p>As shown in the visualizations, the MAE's latent space displays more distinct 
+			clusters according to the class labels, indicating that the MAE captures more semantic 
+			information about the image. The radius of the MAE clusters, calculated using the 
+			average Euclidean distance of the points from the center of the cluster, is also much smaller than 
+			that of the DAE, shown in the table below.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+			
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<table style="border-collapse: collapse; margin: 20px auto;">
+				<tr style="background-color: #f2f2f2;">
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Class</th>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">DAE Radius</th>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">MAE Radius</th>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">0</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">10.3369</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">3.0710</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">1</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">8.5499</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">2.7798</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">2</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">9.9006</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">3.7947</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">3</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">8.5157</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">3.3625</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">4</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">10.6844</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">2.9421</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">5</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">8.8930</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">3.4431</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">6</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">9.8378</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">3.2537</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">7</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">9.0997</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">3.2447</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">8</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">9.9732</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">3.4379</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">9</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">8.6646</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">2.8606</td>
+				</tr>
+			</table>
+		</div>
+		<div class="margin-right-block">
+			Table 2. Radius of the latent space clusters for the DAE and MAE trained on the MNIST 
+			dataset.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<p>The increased clustering effect in the MAE was also observed in the CIFAR-10 dataset
+			across both the normal and color-jittered experiments, though not as 
+			pronounced. Unlike in the MNIST dataset, where there were separations between distinct 
+			clusters, the CIFAR-10 samples are much more mixed. This is likely due to the increased complexity of the dataset &mdash; 
+			images from the CIFAR-10 dataset are full-color RGB images, and there is much higher
+			intra-class variability due to the nature of the categories. Furthermore, the
+			backgrounds of the CIFAR-10 dataset are much more complex, compared to the fully 
+			black background of the MNIST dataset. The data gathered for the color-jittered CIFAR-10 experiment 
+			is included below, as the values of the normal CIFAR-10 experiment are quite similar. </p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div style="display: flex; justify-content: center; gap: 40px; align-items: center;">
+				<div>
+					<div style="display: flex; flex-direction: column; gap: 10px;">
+						<img src="/images/images/color_dae_clustering.png" width=400px/>
+						<img src="/images/images/color_mae_clustering.png" width=400px/>
+					</div>
+				</div>
+				<div>
+					<table style="border-collapse: collapse; margin: 20px auto;">
+						<tr style="background-color: #f2f2f2;">
+							<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Class</th>
+							<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">DAE Radius</th>
+							<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">MAE Radius</th>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Plane</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">20.8720</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">11.1166</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Car</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">19.3819</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">9.2960</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Bird</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">19.3067</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">11.9481</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Cat</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">18.7238</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">11.7105</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Deer</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">15.1067</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">12.0574</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Dog</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">19.2490</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">11.6463</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Frog</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">14.4154</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">10.1000</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Horse</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">19.2148</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">11.0689</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Ship</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">19.6614</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">10.5390</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: center;">Truck</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">19.4636</td>
+							<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">9.5047</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="margin-right-block">
+			Figure 7 (left). Clustering of the latent space for the color-jittered CIFAR-10 DAE (top) and MAE (bottom). <br />
+			<br />
+			Table 3 (right). Radius of the latent space clusters for the DAE and MAE trained on the color-jittered CIFAR-10 
+			dataset.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<p>Across all experiments, the MAE outperformed the DAE in terms of clustering in the latent space.
+			Each of the classes exhibited much tighter clusters, suggesting that the MAE's high 
+			classification accuracy is in part due to its discriminitive and semantically meaningful 
+			representations. With these tighter clusters, it becomes much easier for a classification 
+			head to learn the boundaries between classes.
+			</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<h2>Visualizing Saliency and Attention Maps</h2>
+
+			<p>For the DAEs, we generate saliency maps that measure how sensitive the latent 
+			representations are to perturbations in the input. For each value in the latent space,
+			we calculate the gradients with respect to each pixel in the input image, combining these 
+			values per-pixel in order to measure each pixel's overall contribution to the latent 
+			representation. These contributions are then normalized to the [0, 1] range and displayed
+			as a heatmap, with darker colors indicating lower impact and brighter colors 
+			indicating higher impact. </p>
+			
+			<p>For the MAEs, we generate attention maps that indicate which patches the ViT
+			encoder focused the most on during the forward pass. This is done by taking the 
+			attention weights from the ViT's last layer and multiplying these values against the
+			patched masked image, creating one map per attention head. The resulting heatmaps are 
+			normalized to the [0, 1] range and displayed, following the same pattern where 
+			brighter colors indicate higher attention. An example for both the saliency and attention maps for the 
+			MNIST dataset is shown below.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div style="display: flex; justify-content: center; gap: 10px;">
+				<img src="/images/images/mnist_dae_saliency.png" width=370px/>
+				<img src="/images/images/mnist_mae_attention.png" width=600px/>
+			</div>
+		</div>
+		<div class="margin-right-block">
+			Figure 8. Saliency map for the DAE (left) and attention map for the MAE (right) for
+			the MNIST dataset.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<p>These maps demonstrate that the MAEs have a greater proportion of high-attention 
+			patches than the amount of high-saliency pixels in the DAEs, an effect that is again 
+			more pronounced in the MNIST than the CIFAR-10 dataset. This highlights the MAEs' 
+			ability to focus on semantically important regions of an image, as the targeted 
+			attention facilitates the encoding of meaningful features. On the contrary, the DAEs' 
+			large regions of low- to medium-saliency values result in the distribution of focus,
+			likely due to the denoising process, and may lead to the model capturing less relevant 
+			details and making them less effective in downstream tasks. 
+			</p>
+
+			<h2>Weight Distribution Analysis</h2>
+
+			<p>For each experiment, we plotted the weight distributions of each layer, ignoring 
+		    normalization layers and the bias terms, of the DAE and the MAE models. An example of 
+			this distribution is shown below for the CIFAR-10 dataset.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div style="display: flex; justify-content: center; gap: 10px;">
+				<img src="/images/images/cifar_dae_weight_graphs.png" width=300px/>
+				<img src="/images/images/cifar_mae_weight_graphs.png" width=500px/>
+			</div>
+		</div>
+		<div class="margin-right-block">
+			Figure 9. Weight distribution of the DAE (left) and MAE (right) layers for
+			the CIFAR-10 dataset.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<p>Across all experiments, including the color-jittered CIFAR-10 dataset, the weight 
+			distributions of the MAE and DAE follow the same pattern, revealing significant differences in how these models 
+			utilize their parameters. The DAE’s weights follow a Gaussian-like distribution and are 
+			heavily concentrated near zero, indicating that many neurons contribute minimally to 
+			the model's learning process. This sparsity suggests inefficiencies, as the DAE may 
+			overemphasize low-level details required for denoising, limiting its ability to 
+			extract high-level features essential for tasks like classification.</p>
+
+			<p>In contrast, the MAE exhibits a more evenly distributed weight range with fewer 
+			extreme values, reflecting more balanced and effective parameter utilization. This 
+			distribution allows the MAE to encode richer semantic features in its latent space, 
+			as evidenced by the tighter clustering of inputs from the same class in our latent 
+			space visualizations. Additionally, the MAE's weight characteristics likely enhance 
+			its stability and adaptability, contributing to its superior performance on the MNIST 
+			and CIFAR-10 datasets.</p>
+
+			<h2>PSNR and SSIM Metrics</h2>
+
+			<p>Across all experiments, contrary to our expectations due to the richer hidden 
+			representation of the MAE models, the DAE outperformed the MAE 
+			consistently in terms of PSNR and SSIM metrics, achieving higher values in both. 
+			A sample output calculation is 
+			shown below for the CIFAR-10 dataset.</p> 
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div style="display: flex; justify-content: center; gap: 10px;">
+				<img src="/images/images/cifar_dae_psnr.png" width=400px/>
+				<img src="/images/images/cifar_mae_psnr.png" width=400px/>
+			</div>
+		</div>
+		<div class="margin-right-block">
+			Figure 10. PSNR of the DAE (left) and MAE (right) models for
+			the CIFAR-10 dataset.
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div style="display: flex; justify-content: center; gap: 10px;">
+				<img src="/images/images/cifar_dae_ssim.png" width=400px/>
+				<img src="/images/images/cifar_mae_ssim.png" width=400px/>
+			</div>
+		</div>
+		<div class="margin-right-block">
+			Figure 11. SSIM of the DAE (left) and MAE (right) models for
+			the CIFAR-10 dataset.
+		</div>
+	</div>
+			
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<p>The PSNR and SSIM metrics for each experiment are shown below.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<table style="border-collapse: collapse; margin: 20px auto;">
+				<tr style="background-color: #f2f2f2;">
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;"></th>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">DAE - PSNR</th>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">MAE - PSNR</th>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">DAE - SSIM</th>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">MAE - SSIM</th>
+				</tr>
+				<tr>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">MNIST</th>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">15.93</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">14.09</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">0.69</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">0.26</td>
+				</tr>
+				<tr>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">CIFAR-10</th>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">20.9</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">19.2</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">0.79</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">0.69</td>
+				</tr>
+				<tr>
+					<th style="border: 1px solid #ddd; padding: 8px; text-align: center;">Color-Jittered CIFAR-10</th>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">24.01</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">21.38</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">0.78</td>
+					<td style="border: 1px solid #ddd; padding: 8px; text-align: right;">0.69</td>
+				</tr>
+			</table>
+		</div>
+		<div class="margin-right-block">
+			Table 4. PSNR and SSIM metrics for the DAE and MAE models.
+		</div>
+	</div>
+		
+	<div class="content-margin-container" id="results_and_analysis">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<p>One reason for these discrepancies may be the fact that 
+			the architectures take inherently different inputs: the MAE’s masked input may be a 
+			harder input to reconstruct, even if the weights learned when creating a latent 
+			representation are more useful for downstream tasks. While this addresses the superiority
+			of the DAE in terms of PSNR, which measure purely per-pixel reconstruction accuracy, it 
+			cannot fully explain the better performance of the DAE in terms of SSIM, the metric 
+			for structural information. One explanation for this could be the small patch sizes used 
+			for the MAE training &mdash; each patch consists of only 4 pixels, limiting the structural
+			information present. </p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="implications_and_limitations">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<h1>Implications and Limitations</h1>
+
+			<p>To summarize our findings from each experiment:</p>
+
+			<ol>
+				<li>For all classification experiments, including applying color-jittering on the 
+					CIFAR-10 dataset, the MAE consistently outperformed the DAE. </li>
+				<li>The MAE latent space exhibits distinct, smaller clusters for inputs from the 
+					same class, suggesting that MAEs capture more discriminative and meaningful 
+					features from the input images.</li>
+				<li>MAEs had a narrow, uniform distribution of weight magnitudes, contrasted 
+					against the zero-mean Gaussian-like distribution of DAEs, which indicates some
+					loss of information due to inefficiences and underutilized neurons present 
+					in the DAE model.</li>
+				<li>DAEs actually outperformed the MAEs in terms of PSNR and SSIM metrics, likely
+					due to the limited structural information available to the MAE as a result of 
+					the high masking ratio and small patch sizes.</li>
+			</ol>
+
+			<p>The results provide valuable insights into the MAE's ability to outperform DAEs on 
+			high-level image classification tasks while shedding light on the underlying 
+			factors that enable its performance. The MAE demonstrated resilience to color-jittering, 
+			maintaining high classification accuracy and well-defined latent space clustering, 
+			even under input distortions. This robustness highlights the model's ability to 
+			capture meaningful semantic features, which are crucial for classification tasks. 
+			However, the lower PSNR and SSIM scores observed for the MAE reflect its trade-off in 
+			reconstruction quality, likely due to the limited information available in the masked 
+			inputs and the use of small patch sizes (2x2).</p>
+			
+			<p>These findings reinforce the MAE's strength in tasks that prioritize semantic 
+			understanding over pixel-level accuracy. Future work could explore training MAEs on 
+			larger, more compute-intensive datasets, allowing for larger patch sizes that might 
+			improve both semantic and structural feature extraction. Additionally, further 
+			investigation into how the MAE mitigates distortions like color-jittering could inform 
+			improvements in robustness and generalization for other high-level tasks.</p>
+
+			<p>All code utilized for this project can be found on our 
+			<a href="https://github.com/ivywu2003/autoencoders">Github repository</a>.</p>
+		</div>
+		<div class="margin-right-block">
+		</div>
+	</div>
+
+	<div class="content-margin-container" id="citations">
+		<div class="margin-left-block">
+		</div>
+		<div class="main-content-block">
+			<div class='citation' id="references" style="height:auto"><br>
+				<span style="font-size:16px">References:</span><br><br>
+				<a id="ref_1"></a>[1] Chaoning Zhang et. al. A Survey on Masked Autoencoder for Self-Supervised Learning in Vision and Beyond. <a href="https://arxiv.org/pdf/2208.00173">https://arxiv.org/pdf/2208.00173</a><br><br>
+				<a id="ref_2"></a>[2] Dor Bank et. al. Autoencoders. <a href="https://arxiv.org/pdf/2003.05991">https://arxiv.org/pdf/2003.05991</a><br><br>
+				<a id="ref_3"></a>[3] Jacob Devlin et. al. BERT: Pre-Training of Deep Bidirectional Transformers for Language Understanding. <a href="https://arxiv.org/pdf/1810.04805">https://arxiv.org/pdf/1810.04805</a><br><br>
+				<a id="ref_4"></a>[4] Kaiming He et. al. Masked Autoencoders Are Scalable Vision Learners. <a href="https://arxiv.org/pdf/2111.06377">https://arxiv.org/pdf/2111.06377</a><br><br>
+				<a id="ref_5"></a>[5] Pedram Mohammadi et. al. Subjective and Objective Quality Assessment of Image: A Survey. <a href="https://arxiv.org/pdf/1406.7799.pdf">https://arxiv.org/pdf/1406.7799.pdf</a><br><br>
+				<a id="ref_6"></a>[6] Pascal Vincent et. al. Extracting and Composing Robust Features with Denoising Autoencoders. <a href="https://www.cs.toronto.edu/~larocheh/publications/icml-2008-denoising-autoencoders.pdf">https://www.cs.toronto.edu/~larocheh/publications/icml-2008-denoising-autoencoders.pdf</a><br><br>
+				<a id="ref_7"></a>[7] Shuren Lai et. al. Fusion Image Style Transfer Network. <a href="https://www.researchgate.net/publication/335573567_Fusion_Image_Style_Transfer_Network/citations">https://www.researchgate.net/publication/335573567_Fusion_Image_Style_Transfer_Network/citations</a><br><br>
+				<a id="ref_8"></a>[8] Yann LeCun et. al. The MNIST Database of Handwritten Digits. <a href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a><br><br>
+				<a id="ref_9"></a>[9] Alex Krizhevsky. The CIFAR-10 dataset. <a href="https://www.cs.toronto.edu/~kriz/cifar.html">https://www.cs.toronto.edu/~kriz/cifar.html</a><br><br>
+				<a id="ref_10"></a>[10] Facebook Research. Masked Autoencoders: A PyTorch Implementation. <a href="https://github.com/facebookresearch/mae">https://github.com/facebookresearch/mae</a><br><br>
+				<a id="ref_11"></a>[11] Udacity. Denoising Autoencoder.<a href="https://github.com/udacity/deep-learning-v2-pytorch/blob/master/autoencoder/denoising-autoencoder/Denoising_Autoencoder_Solution.ipynb">https://github.com/udacity/deep-learning-v2-pytorch/blob/master/autoencoder/denoising-autoencoder/Denoising_Autoencoder_Solution.ipynb</a><br><br>
+				<a id="ref_12"></a>[12] Laurens van der Maaten and Geoffrey Hinton. Visualizing Data using t-SNE. <a href="https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf">https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf</a><br><br>
+			</div>
+		</div>
+		<div class="margin-right-block">
+		
+		</div>
+	</div>
+
+	</body>
+
+</html>
