@@ -2,7 +2,7 @@ mainSections = ["post"]
 [sidebar]
 emoji = "🪷"
 
-favicon = "/favicon.png"
+favicon = "🪷"
 
 [sidebar.avatar]
 enabled = true
