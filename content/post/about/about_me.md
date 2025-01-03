@@ -1,7 +1,7 @@
 ---
 title: About me!
-slug: hello-world
-image: alchemist.png
+slug: about
+image: /images/alchemist.png
 weight: 1 
 draft: false
 menu: 
