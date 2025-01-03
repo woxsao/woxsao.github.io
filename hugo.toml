@@ -1,4 +1,4 @@
-baseURL = 'https://woxsao.github.io/'
+baseURL = 'http://localhost:1313/'
 languageCode = 'en-us'
 title = 'Monica Chan'
 theme = 'hugo-theme-stack'

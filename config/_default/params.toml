@@ -8,3 +8,4 @@ favicon = "/favicon.png"
 enabled = true
 local = true
 src = "img/self.png"
+draft = false
