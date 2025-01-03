@@ -1,9 +1,9 @@
 ---
 title: About me!
-slug: about
 image: /images/alchemist.png
 weight: 1 
 draft: false
+url: "/about/"
 menu: 
     main:
         name: About
