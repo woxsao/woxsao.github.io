@@ -111,7 +111,7 @@ We decided early on to use BevFusion for our sensor fusion model. As opposed to 
 
 BEVFusion-MIT is among the leading models on nuScenes, achieving ~120ms latency on an Nvidia 3090 (Segments.ai). Performance improves with EA-LSS enhancements while remaining within our 150ms perception latency budget.
 
-For state estimation we will be implementing Graph-SLAM with a Ceres Solver, and motion planning will implement a ceres solver. If you're interested in learning more about our autonomous software design, you can email us at fsae@mit.edu. 
+For state estimation we will be implementing Graph-SLAM with a Ceres Solver, and motion planning will implement a MPC algorithm. If you're interested in learning more about our autonomous software design, you can email us at fsae@mit.edu. 
 
 All those design choices led us to choose the NVIDIA Orin for our car. We debated building a custom PC but decided against it due to high power draw. The minimum power draw for a custom PC that we could build would be around 250 Watts just for the GPU alone! The Orin draws around 100W, making it ideal for trackdrive conditions along with its very packageable body. 
 
