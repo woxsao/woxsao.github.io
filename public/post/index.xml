@@ -8,16 +8,26 @@
         <language>en-us</language>
         <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>About me!</title>
-        <link>http://localhost:1313/post/about/about/</link>
+        <link>http://localhost:1313/about/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/post/about/about/</guid>
+        <guid>http://localhost:1313/about/</guid>
         <description>&lt;img src="http://localhost:1313/images/alchemist.png" alt="Featured image of post About me!" /&gt;&lt;p&gt;Hi there! I&amp;rsquo;m Monica Chan, a senior studying EECS at MIT.
 My interests include embedded systems, software design and integration, digital design, and AI.&lt;/p&gt;
 &lt;p&gt;I am on track to graduate with my Bachelor&amp;rsquo;s in EECS from MIT in 2025, and a Master&amp;rsquo;s in EECS from MIT in 2026.&lt;/p&gt;
-&lt;p&gt;I’ve worked at Renesas Electronics, Tesla, SpaceX, and I will be working at Palantir in Summer of 2025. At Renesas I was responsible for delivering a lossy inductor model for simulation in Simplis. At Tesla, I developed the Service UI Charging Panel for Cybertruck, created fleet analysis tools for Service Engineering, and contributed to Service Engineering for Cybertruck launch. At SpaceX, I was on the ground segment telemetry team for Falcon, providing automation tools for operators on console and installing weather stations in Cape Canaveral. At Palantir, I will be a Forward Deployed Software Intern in the NYC office.&lt;/p&gt;
-&lt;p&gt;You can email me at &lt;a class=&#34;link&#34; href=&#34;mailto:mochan@mit.edu&#34; &gt;mochan@mit.edu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I’ve worked at Renesas Electronics, Tesla, SpaceX, Palantir, and I will be working at Waymo starting in 2026. At Renesas I was responsible for delivering a lossy inductor model for simulation in Simplis. At Tesla, I developed the Service UI Charging Panel for Cybertruck, created fleet analysis tools for Service Engineering, and contributed to Service Engineering for Cybertruck launch. At SpaceX, I was on the ground segment telemetry team for Falcon, providing automation tools for operators on console and installing weather stations in Cape Canaveral. At Palantir, I was a Forward Deployed Software Intern in the NYC office working on &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=mBDQK7OJ1Ls&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;racecar workflows&lt;/a&gt; for Andretti Indycar.&lt;/p&gt;
+&lt;p&gt;I will be working full time at Waymo as a Product Manager on the Perception team.&lt;/p&gt;
+&lt;p&gt;You can email me at mochan (at) mit (dot) edu&lt;/p&gt;
 </description>
+        </item>
+        <item>
+        <title>Because Racecar</title>
+        <link>http://localhost:1313/post/blog/because-racecar/because_racecar/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/post/blog/because-racecar/because_racecar/</guid>
+        <description></description>
         </item>
         
     </channel>

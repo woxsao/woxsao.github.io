@@ -8,15 +8,17 @@
         <language>en-us</language>
         <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>About me!</title>
-        <link>http://localhost:1313/post/about/about/</link>
+        <link>http://localhost:1313/about/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/post/about/about/</guid>
+        <guid>http://localhost:1313/about/</guid>
         <description>&lt;img src="http://localhost:1313/images/alchemist.png" alt="Featured image of post About me!" /&gt;&lt;p&gt;Hi there! I&amp;rsquo;m Monica Chan, a senior studying EECS at MIT.
 My interests include embedded systems, software design and integration, digital design, and AI.&lt;/p&gt;
 &lt;p&gt;I am on track to graduate with my Bachelor&amp;rsquo;s in EECS from MIT in 2025, and a Master&amp;rsquo;s in EECS from MIT in 2026.&lt;/p&gt;
-&lt;p&gt;I’ve worked at Renesas Electronics, Tesla, SpaceX, and I will be working at Palantir in Summer of 2025. At Renesas I was responsible for delivering a lossy inductor model for simulation in Simplis. At Tesla, I developed the Service UI Charging Panel for Cybertruck, created fleet analysis tools for Service Engineering, and contributed to Service Engineering for Cybertruck launch. At SpaceX, I was on the ground segment telemetry team for Falcon, providing automation tools for operators on console and installing weather stations in Cape Canaveral. At Palantir, I will be a Forward Deployed Software Intern in the NYC office.&lt;/p&gt;
-&lt;p&gt;You can email me at &lt;a class=&#34;link&#34; href=&#34;mailto:mochan@mit.edu&#34; &gt;mochan@mit.edu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I’ve worked at Renesas Electronics, Tesla, SpaceX, Palantir, and I will be working at Waymo starting in 2026. At Renesas I was responsible for delivering a lossy inductor model for simulation in Simplis. At Tesla, I developed the Service UI Charging Panel for Cybertruck, created fleet analysis tools for Service Engineering, and contributed to Service Engineering for Cybertruck launch. At SpaceX, I was on the ground segment telemetry team for Falcon, providing automation tools for operators on console and installing weather stations in Cape Canaveral. At Palantir, I was a Forward Deployed Software Intern in the NYC office working on &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=mBDQK7OJ1Ls&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;racecar workflows&lt;/a&gt; for Andretti Indycar.&lt;/p&gt;
+&lt;p&gt;I will be working full time at Waymo as a Product Manager on the Perception team.&lt;/p&gt;
+&lt;p&gt;You can email me at mochan (at) mit (dot) edu&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -122,7 +124,7 @@ $AFOV = 2*arctan(sensor_width/(2 \cdot focal_length))$&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;BEVFusion-MIT is among the leading models on nuScenes, achieving ~120ms latency on an Nvidia 3090 (Segments.ai). Performance improves with EA-LSS enhancements while remaining within our 150ms perception latency budget.&lt;/p&gt;
-&lt;p&gt;For state estimation we will be implementing Graph-SLAM with a Ceres Solver, and motion planning will implement a ceres solver. If you&amp;rsquo;re interested in learning more about our autonomous software design, you can email us at &lt;a class=&#34;link&#34; href=&#34;mailto:fsae@mit.edu&#34; &gt;fsae@mit.edu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For state estimation we will be implementing Graph-SLAM with a Ceres Solver, and motion planning will implement a MPC algorithm. If you&amp;rsquo;re interested in learning more about our autonomous software design, you can email us at &lt;a class=&#34;link&#34; href=&#34;mailto:fsae@mit.edu&#34; &gt;fsae@mit.edu&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;All those design choices led us to choose the NVIDIA Orin for our car. We debated building a custom PC but decided against it due to high power draw. The minimum power draw for a custom PC that we could build would be around 250 Watts just for the GPU alone! The Orin draws around 100W, making it ideal for trackdrive conditions along with its very packageable body.&lt;/p&gt;
 &lt;h2 id=&#34;coming-soon-iap-build-time&#34;&gt;Coming soon: IAP Build Time!&lt;/h2&gt;
 &lt;p&gt;We are planning on doing a bulk of our manufacturing and assembly of our testbed and data collection jig during IAP with the goal of collecting data during IAP!!!
@@ -167,6 +169,14 @@ If you have any questions at all, please shoot us an email at &lt;a class=&#34;l
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/woxsao/6.4210-Typing-Robot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Code&lt;/a&gt;&lt;/p&gt;
 </description>
+        </item>
+        <item>
+        <title>Because Racecar</title>
+        <link>http://localhost:1313/post/blog/because-racecar/because_racecar/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/post/blog/because-racecar/because_racecar/</guid>
+        <description></description>
         </item>
         
     </channel>

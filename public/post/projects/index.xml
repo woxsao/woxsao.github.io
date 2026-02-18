@@ -109,7 +109,7 @@ $AFOV = 2*arctan(sensor_width/(2 \cdot focal_length))$&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;BEVFusion-MIT is among the leading models on nuScenes, achieving ~120ms latency on an Nvidia 3090 (Segments.ai). Performance improves with EA-LSS enhancements while remaining within our 150ms perception latency budget.&lt;/p&gt;
-&lt;p&gt;For state estimation we will be implementing Graph-SLAM with a Ceres Solver, and motion planning will implement a ceres solver. If you&amp;rsquo;re interested in learning more about our autonomous software design, you can email us at &lt;a class=&#34;link&#34; href=&#34;mailto:fsae@mit.edu&#34; &gt;fsae@mit.edu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For state estimation we will be implementing Graph-SLAM with a Ceres Solver, and motion planning will implement a MPC algorithm. If you&amp;rsquo;re interested in learning more about our autonomous software design, you can email us at &lt;a class=&#34;link&#34; href=&#34;mailto:fsae@mit.edu&#34; &gt;fsae@mit.edu&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;All those design choices led us to choose the NVIDIA Orin for our car. We debated building a custom PC but decided against it due to high power draw. The minimum power draw for a custom PC that we could build would be around 250 Watts just for the GPU alone! The Orin draws around 100W, making it ideal for trackdrive conditions along with its very packageable body.&lt;/p&gt;
 &lt;h2 id=&#34;coming-soon-iap-build-time&#34;&gt;Coming soon: IAP Build Time!&lt;/h2&gt;
 &lt;p&gt;We are planning on doing a bulk of our manufacturing and assembly of our testbed and data collection jig during IAP with the goal of collecting data during IAP!!!
